@@ -150,11 +150,3 @@ const Createpin = () => {
 export default Createpin
 
 
-
-// <div className={`${style.imgInput} col-md-6`}>
-//             <input type='file' name='upload_img' id='upload_img' className={style.take} />
-//             <label className={style.label} htmlFor='upload_img'>
-//                 <div>Click to upload <FontAwesomeIcon icon={faArrowAltCircleUp} /> </div>
-//                 <p>Recommendation : Use high-quality .jpg less than 20MB </p>
-//             </label>
-//         </div>

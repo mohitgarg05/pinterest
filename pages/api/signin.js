@@ -31,6 +31,8 @@ export default async (req, res) => {
 
               const user = new User({
                 userEmail : body.email,
+                userName : body.name,
+                userImage : body.img,
                 userAge : body.age,
                 userGender : body.gender,
                 userInterest : body.interest
@@ -48,7 +50,7 @@ export default async (req, res) => {
             }
             else{
               const token =  generateToken(body.email , present._id) ;
-              res.status(201).json({status:"present" , token:token});
+              res.status(201).json({status:"present" , token:token , data:present});
             }
           } catch (error) {
             res.status(400).json({sucess:false , message:error})

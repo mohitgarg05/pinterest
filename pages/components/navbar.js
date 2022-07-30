@@ -6,28 +6,48 @@ import { GoogleLogin , GoogleLogout } from 'react-google-login';
 import cookie from 'js-cookie'
 import jwt from 'jsonwebtoken'
 import Link from 'next/link'
+import {faCircleUser } from '@fortawesome/free-regular-svg-icons'
+import {faChevronCircleDown} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Navbar = (props) => {
     const [hasToken, sethasToken] = useState(false);
     const [triggerPopup, settriggerPopup] = useState(false);
+    const [UserName, setUserName] = useState()
+    const [UserImage, setUserImage] = useState()
 
     useEffect(() => {
         const t = cookie.get('token');
+
+        const res = localStorage.getItem('user');
+        console.log(JSON.parse(res));
+        setUserName(JSON.parse(res).userName);
+        setUserImage(JSON.parse(res).userImg);
+
         
        
         if(t){
             const y = jwt.decode(t);
-            console.log(y.email);
+            console.log(y);
             sethasToken(true); 
         }
         
     }, [])
 
+
+
     const login = async (response)=>{
 
-        // props.callback2();
+        const user = {
+            "userName" : response.profileObj.name,
+            "userImg": response.profileObj.imageUrl
+        }
+        window.localStorage.setItem('user', JSON.stringify(user));
+      
 
-        props.callback(response.profileObj.email);
+        props.callbackMail(response.profileObj.email);
+        props.callbackName(response.profileObj.name);
+        props.callbackImage(response.profileObj.imageUrl);
 
         const obj = {
             email : response.profileObj.email
@@ -48,6 +68,7 @@ const Navbar = (props) => {
                 props.callback2();
             }else{
                 cookie.set('token', data.token)
+                
                 window.location.reload(false);
             }
            
@@ -67,8 +88,10 @@ const Navbar = (props) => {
 
     const logout = ()=>{
          cookie.remove('token')
+         localStorage.removeItem('user');
          window.location.reload(false);
     }
+
 
   return (
     <div className={`${style.navbar} row`} >
@@ -91,9 +114,21 @@ const Navbar = (props) => {
 
 
 
-        <div className={`${style.navbar_login}`} >
+        <div className={`${style.navbar_login}`} >  
 
-        { hasToken? <GoogleLogout
+        {hasToken? 
+        <div className={style.user_icons}>
+            <div className={style.userimg}>
+                <img src={UserImage} />  
+            </div>
+            <div className={style.arrow}>
+                <button><FontAwesomeIcon icon={faChevronCircleDown} /></button>
+            </div>
+        </div> 
+        : <></> }
+
+
+        {/* { hasToken? <GoogleLogout
               clientId="152573124270-fqcj5nrqs6f5c05va3c267meqeeod28g.apps.googleusercontent.com"
               onLogoutSuccess={ logout }
               onFailure={ handleLogoutFailure }
@@ -113,13 +148,7 @@ const Navbar = (props) => {
                 <button onClick={renderProps.onClick} disabled={renderProps.disabled} className={`${style.button} col-md-auto`}>Log in</button>
         )}
             />
-             }
-
-            
-            
-       
-            
-           
+             } */}
         </div>
     </div>
   )

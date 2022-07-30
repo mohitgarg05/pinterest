@@ -7,6 +7,8 @@ export default function Home() {
 
   const [TriggerPopup, setTriggerPopup] = useState(false);
   const [Email, setEmail] = useState()
+  const [userName, setuserName] = useState()
+  const [userImage, setuserImage] = useState()
 
   const handlePopup = ()=>{
     setTriggerPopup(true);
@@ -19,16 +21,22 @@ export default function Home() {
   const getEmail = (mail)=>{
     setEmail(mail);
   }
+  const getUserImg = (mail)=>{
+    setuserImage(mail);
+  }
+  const getUserName = (mail)=>{
+    setuserName(mail);
+  }
 
   return (
    <>
    <header >
       <div className='row' style={{width:"100%"}}>
-        <Navbar  callback={getEmail} callback2={handlePopup}/>
+        <Navbar  callbackMail={getEmail} callbackName = {getUserName} callbackImage = {getUserImg}  callback2={handlePopup}/>
       </div>
    </header>
    <div style={{width:"100%"}}>
-      {TriggerPopup && <PopUp mail = {Email} callback = {handlePopupclose} />}
+      {TriggerPopup && <PopUp mail = {Email} name={userName} image = {userImage} callback = {handlePopupclose} />}
    </div>
    <div className='row all_pic'>
       <Allpics />

@@ -32,6 +32,8 @@ const Popupdiv = (props) => {
 
     const obj = {
       email : props.mail,
+      name:props.name,
+      img: props.image,
       age : AgeProp,
       gender : GenderProps,
       interest : UserInterest
