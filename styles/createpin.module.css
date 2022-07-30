@@ -1,0 +1,146 @@
+
+/* .main{
+    border: solid 1px;
+    border-left: none;
+    border-right: none;
+    background-color: #EFEFEF;
+} */
+
+.con{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, 
+                rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, 
+                rgba(10, 37, 64, 0.35) 0px -2px 6px 0px 
+                inset;
+    margin: 20px auto;
+    width: 65%;
+    height: 82vh;
+    border-radius: 30px;
+    overflow: hidden;
+    background-color: white;
+
+}
+
+.flex_comp{
+    
+    width: 88%;
+    height: 75vh;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.input_div{
+  
+   width: 90%;
+    flex: 1;
+}
+
+.inside{
+   
+    height: 100%;
+    width: 99%;
+    margin: 0 auto;
+    background-color: #EFEFEF;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.inside img{
+    height: 100%;
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    object-position: center;
+    /* position: absolute; */
+
+}
+
+.inside input{
+    display: none;
+}
+
+
+.inside_form button{
+    /* border: solid; */
+    border-radius: 20px;
+    width: 30%;
+    height: 80%;
+    margin: 30px 20px;
+    font-size: 20px ;
+    background-color: #E81C23;
+    border: none; 
+    color: white;
+}
+
+.label{
+    border: solid 1px;
+    border-style: dashed ;
+    margin: 10px 20px;
+    width: 90%;
+    height: 96%;
+    border-radius: 30px;
+    cursor: pointer;
+
+  }
+
+  .icon{
+    width: 10%;
+    font-size: 35px;
+    margin: 180px auto 0 auto;
+  }
+
+  .upload{
+    text-align: center;
+    margin: 0 auto;
+    font-size: 20px;
+    width: 40%;
+  }
+
+  .recm{
+    margin: 200px auto 0 auto;
+    text-align: center;
+    width: 85%;
+
+  }
+
+
+/* .cross{
+  
+    float: right;
+    color: white;
+    font-size: 30px;
+    margin-right: 10px;
+    
+} */
+
+
+
+
+
+.dis_data{
+    flex: 1;
+}
+
+.form{
+    height: 100%;
+
+}
+
+.inside_form{
+  
+  
+    margin-top: 140px;
+}
+
+.inside_form input{
+    width: 80%;
+    margin: 20px;
+    border: none;
+    border-bottom: solid 1px grey;
+}
+
+.inside_form input:focus{
+    outline: none;
+}
+

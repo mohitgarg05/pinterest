@@ -1,0 +1,59 @@
+.popuo_div{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(0, 0, 0 , 0.4);
+   
+    /* filter: blur(8px); */
+}
+
+.main_div{
+    border: 2px solid black;
+    min-height: 75%;
+    width: 55%;
+    position: relative;
+    margin: 50px auto;
+    overflow: hidden;
+    border-radius: 30px;
+    background-color: white;
+    z-index: 2;
+   
+}
+
+.smallNav{
+    display: flex;
+    margin: 30px auto 0 auto;
+    justify-content: space-between;
+    width: 19%;
+    
+}
+
+.active{
+    background-color: black;
+}
+
+.list_nav{
+    list-style-type: none;
+    height: 12px;
+    width: 12px;
+    border: solid;
+    border-radius: 50%;
+}
+
+.list_nav:hover{
+    background-color: black;
+}
+
+.div_submit{
+    width: 30%;
+    margin: 30px auto 0px auto;
+}
+.button{
+    height: 40px;
+    border-radius: 30px;
+    font-size: 20px ;
+    background-color: #E81C23;
+    border: none;
+    color: white;
+ 
+}

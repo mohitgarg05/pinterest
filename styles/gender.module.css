@@ -1,0 +1,35 @@
+.age_div{
+    /* border: solid; */
+    margin-top: 90px;
+}
+
+.h1{
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.age_input{
+    width: 70%;
+    margin: 70px auto 0px auto;
+}
+
+.radio_button{
+    width: 70%;
+    margin: 30px auto 0px auto;
+    display: block;
+    line-height: 40px;
+  
+}
+
+.radio_input[type='radio']::after{
+    border: solid;
+    background-color: black;
+    cursor: pointer;
+}
+
+.label{
+    font-size: 22px;
+    margin-left: 20px;
+    font-weight: 600;
+}
+

@@ -1,0 +1,90 @@
+.con{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    margin: 20px auto;
+    width: 70%;
+    height: 82vh;    
+    border-radius: 30px;
+    overflow: hidden;
+    background-color: white;
+    /* border: solid; */
+    display: flex;
+
+}
+
+.img_con{
+    
+    flex:1;
+}
+
+.des_con{
+    flex: 1;
+}
+
+.img_con img{
+    display: block;
+    width: 100%;
+
+    height: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    object-position: center;
+}
+
+.all_icons{
+    display: flex;
+    padding: 10px;
+    margin-left: 30px;
+    width: 97%;
+}
+
+.h4{
+    padding: 10px;
+    align-items: center;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+    margin-top: 30px;
+    font-size: 30px;
+    margin-left: 30px;
+    width: 60%;
+    font-weight: bolder;
+   
+}
+
+.p{
+    padding-left: 10px;
+    align-items: center;
+    text-transform: capitalize;
+    
+    margin-left: 30px;
+    
+    width: 60%;
+}
+
+.all_icons{
+   
+    width: 90%;
+}
+
+.all_icons button{
+    border: none;
+    background-color: transparent;
+    font-size: 30px;
+    
+}
+
+.all_icons button:nth-child(2){
+    margin-left: 30px;
+}
+
+.all_icons button:nth-child(3){
+
+    margin-left: auto;
+    border-radius: 20px;
+    width: 30%;
+
+    
+    font-size: 20px ;
+    background-color: #E81C23;
+    border: none;
+    color: white;
+}

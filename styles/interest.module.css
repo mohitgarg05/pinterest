@@ -1,0 +1,51 @@
+.interest_div{
+   /* border: solid; */
+   margin-top: 10px;
+}
+
+.heading{
+    /* border: solid; */
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.heading2{
+    text-align: center;
+}
+
+.main_div{
+   
+    overflow: hidden;
+    overflow-y: scroll;
+     max-height:350px ;
+     -ms-overflow-style: none;  /* IE and Edge */
+     scrollbar-width: none;  /* Firefox */
+}
+
+.main_div::-webkit-scrollbar {
+    display: none;
+  }
+
+  .card_grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit , minmax(170px , 1fr));
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+
+
+.interest_submit{
+    width: 20%;
+    margin: 10px auto 0 auto;
+}
+.button{
+    
+    border-radius: 30px;
+    font-size: 20px ;
+    background-color: #E81C23;
+    border: none;
+    color: white;
+ 
+}
+

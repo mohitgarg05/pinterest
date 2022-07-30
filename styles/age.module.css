@@ -1,0 +1,33 @@
+.age_div{
+    /* border: solid; */
+    margin-top: 90px;
+}
+
+.h1{
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.age_input{
+    width: 70%;
+    margin: 70px auto 0px auto;
+}
+
+.input{
+    border-radius: 10px;
+    height: 40px;
+}
+
+.age_submit{
+    width: 30%;
+    margin: 30px auto 0px auto;
+}
+.button{
+    height: 40px;
+    border-radius: 30px;
+    font-size: 20px ;
+    background-color: #E81C23;
+    border: none;
+    color: white;
+ 
+}

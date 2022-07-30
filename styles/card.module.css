@@ -1,0 +1,47 @@
+.card{
+    
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .2);
+    border-radius: 0.6rem;
+    width: 170px;
+    overflow: hidden;
+    position: relative;  
+    cursor: pointer;
+    
+}
+
+.card_active{
+    box-shadow: 0 5px 12px 0 #2575FC;
+}
+
+.card_header{
+    overflow: hidden;
+}
+
+.card_header img{
+    display: block;
+    width: 100%;
+    max-height: 200px;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    object-position: center;
+}
+
+.card:hover > .card_header > img{
+    transform: scale(1.125);
+}
+
+.card_body{
+    position: absolute;
+    bottom: 0.07px;
+    padding-left: 4px;
+    color: white;
+    width: 100%;
+}
+
+.card_body p{
+    margin: 0;
+}
+
+.card_body_active{
+    background-color: #2575FC;
+}
