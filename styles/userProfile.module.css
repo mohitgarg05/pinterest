@@ -1,0 +1,67 @@
+.container{
+
+}
+
+.user_image{
+
+    width: 50%;
+    margin: 0 auto ;
+    display: flex;
+    
+    align-items: center;
+}
+.user_image img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin: 0 auto ;
+    object-fit: cover;
+    object-position: center;
+
+}
+
+.h{
+    width: 50%;
+    margin: 0 auto ;
+    margin-top: 10px;
+   
+}
+
+.h h2{
+    text-align: center;
+    font-size: 40px;
+}
+.h p{
+    text-align: center;
+    font-size: 20px;
+}
+
+.myPins{
+    border: solid;
+    width: 20%;
+    margin: 0 auto ;
+    margin-top: 30px;
+    display: flex;
+}
+
+.created{
+    border: solid;
+    flex: 1;
+    
+}
+.created p{
+    text-align: center;
+    padding-top: 10px;
+    font-size: 20px;
+}
+
+.saved{
+    border: solid;
+    flex: 1;
+    
+}
+.saved p{
+    text-align:center;
+    padding-top: 10px;
+    font-size: 20px;
+}

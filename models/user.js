@@ -1,5 +1,4 @@
-const mongoose = require('mongoose');
-const  jwt = require('jsonwebtoken');
+const mongoose = require('mongoose'); 
 const UserSchema = new mongoose.Schema({
     userEmail : {
         type:String,

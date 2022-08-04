@@ -62,19 +62,22 @@
 
 .user_icons{
     display: flex;
-  width: 150px;
-    
-    
+    width: 334%;
+}
+.user_inside{
+    display: flex;
+    margin-left: auto;
 }
 
 .userimg{
     
+    
     border-radius: 50%;
     width: 40px;
     height:40px;
- border: solid 2px;
     overflow: hidden;
 }
+
 
 .userimg img{
     display: block;
@@ -94,7 +97,8 @@
 .arrow button{
     border: none;
     background-color: transparent;
+    color: grey;
     padding-top: 3px;
     font-size: 20px;
-    margin-left: 25px;
+    margin-left: 15 px;
 }

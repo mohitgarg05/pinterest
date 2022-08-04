@@ -6,23 +6,25 @@ import { GoogleLogin , GoogleLogout } from 'react-google-login';
 import cookie from 'js-cookie'
 import jwt from 'jsonwebtoken'
 import Link from 'next/link'
-import {faCircleUser } from '@fortawesome/free-regular-svg-icons'
 import {faChevronCircleDown} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Profilediv from './profilediv'
 
 const Navbar = (props) => {
     const [hasToken, sethasToken] = useState(false);
-    const [triggerPopup, settriggerPopup] = useState(false);
+
     const [UserName, setUserName] = useState()
     const [UserImage, setUserImage] = useState()
+    const [profilediv, setprofilediv] = useState(false)
 
     useEffect(() => {
         const t = cookie.get('token');
 
         const res = localStorage.getItem('user');
-        console.log(JSON.parse(res));
-        setUserName(JSON.parse(res).userName);
-        setUserImage(JSON.parse(res).userImg);
+        if(res){
+            setUserName(JSON.parse(res).userName);
+            setUserImage(JSON.parse(res).userImg);
+        }
 
         
        
@@ -81,15 +83,10 @@ const Navbar = (props) => {
     const handleLoginFailure=(err)=>{
         console.log("Failed" , err);
     }
+    const handleProfileDiv = (e)=>{
+        e.preventDefault();
+        setprofilediv(!profilediv);
 
-    const handleLogoutFailure=(err)=>{
-        console.log("Failed" , err);
-    }
-
-    const logout = ()=>{
-         cookie.remove('token')
-         localStorage.removeItem('user');
-         window.location.reload(false);
     }
 
 
@@ -117,15 +114,31 @@ const Navbar = (props) => {
         <div className={`${style.navbar_login}`} >  
 
         {hasToken? 
+        <>
         <div className={style.user_icons}>
-            <div className={style.userimg}>
-                <img src={UserImage} />  
-            </div>
-            <div className={style.arrow}>
-                <button><FontAwesomeIcon icon={faChevronCircleDown} /></button>
+            <div className={style.user_inside}>
+                <div className={style.userimg}>
+                    <img src={UserImage} />  
+                </div>
+                <div className={style.arrow}>
+                    <button onClick={handleProfileDiv}><FontAwesomeIcon icon={faChevronCircleDown}  /></button>
+                </div>
             </div>
         </div> 
-        : <></> }
+        <Profilediv user = {UserName} open={profilediv} />
+        </>
+        : <GoogleLogin
+              clientId="152573124270-fqcj5nrqs6f5c05va3c267meqeeod28g.apps.googleusercontent.com"
+            
+             
+              onSuccess={ login }
+              onFailure={ handleLoginFailure }
+              cookiePolicy={ 'single_host_origin' }
+              responseType='code,token'
+              render={renderProps => (
+                <button onClick={renderProps.onClick} disabled={renderProps.disabled} className={`${style.button} col-md-auto`}>Log in</button>
+        )}
+            /> }
 
 
         {/* { hasToken? <GoogleLogout

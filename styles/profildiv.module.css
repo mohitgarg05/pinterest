@@ -1,0 +1,54 @@
+.profil_div{
+   
+    z-index: 1;
+    position: absolute;
+    background-color: white;
+    width: 16%;
+    border-radius: 9px;
+    overflow: hidden;
+    margin-left: 90px;
+    display: none;
+}
+
+.openit{
+    display: block;
+}
+
+
+.wrap{
+    padding: 6px;
+}
+
+.current{
+    
+    height: 30px;
+}
+.p{
+    padding-left: 12px;
+    cursor: pointer;
+}
+.user_name{
+   
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 9px;
+    height: 40px;
+    
+    background-color: #E9E9E9;
+
+    
+}
+
+.user_name p{
+    text-align: center;
+    margin-top: 6px;
+}
+
+.button{
+   
+    margin-left: 10px;
+    margin-top: 20px;
+    
+    background-color: transparent;
+    border: none;
+}
