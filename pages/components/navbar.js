@@ -11,23 +11,27 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Profilediv from './profilediv'
 
 const Navbar = (props) => {
+
+
+
+
     const [hasToken, sethasToken] = useState(false);
 
     const [UserName, setUserName] = useState()
     const [UserImage, setUserImage] = useState()
     const [profilediv, setprofilediv] = useState(false)
+    const [q, setQ] = useState("");
+    // const [FilteredData, setFilteredData] = useState()
 
     useEffect(() => {
         const t = cookie.get('token');
-
         const res = localStorage.getItem('user');
+        
         if(res){
             setUserName(JSON.parse(res).userName);
             setUserImage(JSON.parse(res).userImg);
         }
 
-        
-       
         if(t){
             const y = jwt.decode(t);
             console.log(y);
@@ -88,6 +92,17 @@ const Navbar = (props) => {
         setprofilediv(!profilediv);
 
     }
+    // const handleSearch = (e)=>{
+    //     setQ(e.target.value)
+    //      const filteredData = props.list.filter((item) => {
+    //           return Object.values(item).join('').toLowerCase().includes(q.toLowerCase())
+    //       })
+    //       setFilteredData(filteredData)
+
+    //       props.func(FilteredData);
+    //       console.log(filteredData);
+          
+    //   }
 
 
   return (
@@ -102,11 +117,14 @@ const Navbar = (props) => {
             
         {hasToken?  
         <div className={`${style.navbar_create}`} >
-            <Link href='../components/createpin'><h4 className={`${style.h4}`} >Create</h4></Link>
+            <Link href='/components/createpin'><h4 className={`${style.h4}`} >Create</h4></Link>
         </div>:<></>}
  
         <div className={`${style.navbar_search} col-md-7`}>
-            <input className={`${style.navbar_input} col-md-11`} placeholder='Search' type='text'  />
+            <input className={`${style.navbar_input} col-md-11`} 
+            placeholder='Search' 
+            // value={q} onChange={(e)=>handleSearch(e)}
+            type='text'  />
         </div>
 
 
@@ -118,7 +136,7 @@ const Navbar = (props) => {
         <div className={style.user_icons}>
             <div className={style.user_inside}>
                 <div className={style.userimg}>
-                    <img src={UserImage} />  
+                    <img  src={UserImage} /> 
                 </div>
                 <div className={style.arrow}>
                     <button onClick={handleProfileDiv}><FontAwesomeIcon icon={faChevronCircleDown}  /></button>

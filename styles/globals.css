@@ -34,7 +34,7 @@ Link{
 
 .grid-wrapper {
 	display: grid;
-	grid-gap: 10px;
+	grid-gap: 20px;
 	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 	grid-auto-rows: 100px;
 	grid-auto-flow: dense;
@@ -50,13 +50,14 @@ Link{
 	width: 100%;
 	height: 100%;
 	cursor: zoom-in;
+	border-radius: 20px;
 }
 
 .grid-wrapper img:hover{
     transform: scale(1.04);
 }
 .grid-wrapper .wide {
-	grid-column: span 2;
+	grid-column: span 1;
 	
 }
 .grid-wrapper .tall {

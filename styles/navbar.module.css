@@ -32,6 +32,14 @@
     padding-left: 10px;
 }
 
+.navbar_input[type='text']{
+    padding-left: 5px;
+}
+
+.navbar_input{
+    outline: none;
+}
+
 
 .navbar_create{
     width: 8%;

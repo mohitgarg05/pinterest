@@ -3,12 +3,14 @@ import axios from 'axios'
 import jwt from 'jsonwebtoken'
 import cookie from 'js-cookie'
 import Link from 'next/link'
+import Navbar from './navbar'
 const Allpics = () => {
 
 
   const [newPin, setnewPin] = useState([])
   const [RandomList, setRandomList] = useState([])
   const [Items, setItems] = useState()
+
 
 
   const classes = ["tall" , "wide" , "big"];
@@ -81,16 +83,29 @@ const Allpics = () => {
 
   
   useEffect(() => {
-    setRandomList(shuffle(newPin));
+
+  
+   setRandomList(shuffle(newPin));
+
+
     console.log(newPin);
   }, [newPin])
+
+
+ 
 
   
   
   return (
+    <>
     
+    <div className='row' style={{width:"100%"}}>
+            <Navbar />
+        </div>
         <div className='container' >
             <div className="grid-wrapper">
+
+
               {RandomList.map((item)=>{
               
                 return(
@@ -103,6 +118,7 @@ const Allpics = () => {
               })}
             </div>
         </div>
+      </>
     
   )
 }

@@ -7,13 +7,25 @@ import styles from '../../../styles/picdetail.module.css'
 import {faDownload , faLink} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { saveAs } from 'file-saver'
+import cookie from 'js-cookie'
+import jwt from 'jsonwebtoken'
 
 const Pic = () => {
     const router = useRouter();
     const picId = router.query.picid;
 
+    const [Email, setEmail] = useState()
     const [Image, setImage] = useState([])
     const [otherDetails, setotherDetails] = useState([] )
+
+    useEffect(() => {
+      const t = cookie.get('token');
+      if(t){
+          const y = jwt.decode(t);
+          console.log(y.email);
+          setEmail(y.email);
+      }
+    }, [])
     
     const getImage = async()=>{
 
@@ -42,11 +54,79 @@ const Pic = () => {
       navigator.clipboard.writeText(window.location.href);
     }
 
+    const checkSave = async()=>{
+      
+      const t = Image.regular
+      const obj  = {
+        mail : Email,
+        img : t
+      }
+
+      try {
+        const res = await fetch('/api/checkSaved',{
+          method:'POST',
+          header:{
+              "Content-Type" : "application/json"
+          },
+          body : JSON.stringify(obj)
+        })
+
+
+        const data = await res.json();
+        console.log(data);
+
+      } catch (error) {
+        
+      }
+
+    }
+
+
+    useEffect(() => {
+        checkSave();
+    }, [Image])
+    
+
+
+    const sendSaved = async(e)=>{
+
+      e.preventDefault();
+      const obj  = {
+        mail : Email,
+        img : Image.regular,
+        alt : otherDetails.alt_description,
+        descr : otherDetails.description
+      }
+
+
+      console.log(obj);
+
+      try {
+        
+        const res = await fetch('/api/savedPin',{
+          method:'POST',
+          header:{
+              "Content-Type" : "application/json"
+          },
+          body : JSON.stringify(obj)
+        })
+
+        const response = await res.json();
+        console.log(response);
+
+      } catch (error) {
+        console.log(error);
+      }
+
+
+    }
 
 
   return (
     <>
-      <Navbar/>
+        <div className='row' style={{width:"100%"}}>
+            <Navbar/>
+        </div>
       <div className={styles.con}>
         <div className={styles.img_con}>
           <img src={Image.regular} />
@@ -55,7 +135,7 @@ const Pic = () => {
           <div className={styles.all_icons}>
             <button onClick={downloadImage}><FontAwesomeIcon icon={faDownload} /></button>
             <button onClick={getImageLink}><FontAwesomeIcon icon={faLink}/></button>
-            <button>Save</button>
+            <button onClick={sendSaved}>Save</button>
           </div>
           
           <h4 className={styles.h4}>{otherDetails.alt_description}</h4>

@@ -25,10 +25,16 @@ const UserSchema = new mongoose.Schema({
         type:String
     }],
     userPins:[{
-        title : String,
-        discription : String,
+        description : String,
+        alt_description : String,
         about : String,
-        imgae : String
+        image : String
+    }],
+    userSaved :[{
+        image : String,
+        alt_description : String,
+        description : String
+
     }]
   
 })

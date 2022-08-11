@@ -13,6 +13,7 @@ const logout = ()=>{
      cookie.remove('token')
      localStorage.removeItem('user');
      window.location.reload(false);
+     window.location.href('/')
 }
 
   

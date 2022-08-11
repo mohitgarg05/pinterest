@@ -37,7 +37,7 @@
 }
 
 .myPins{
-    border: solid;
+
     width: 20%;
     margin: 0 auto ;
     margin-top: 30px;
@@ -45,7 +45,8 @@
 }
 
 .created{
-    border: solid;
+    border: none;
+    cursor: pointer;
     flex: 1;
     
 }
@@ -56,10 +57,17 @@
 }
 
 .saved{
-    border: solid;
+    border: none;
+    cursor: pointer;
+   
     flex: 1;
-    
+
 }
+
+.underline{
+    border-bottom: solid;
+}
+
 .saved p{
     text-align:center;
     padding-top: 10px;

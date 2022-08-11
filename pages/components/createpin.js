@@ -97,7 +97,9 @@ const Createpin = () => {
 
   return (
     <>
-      <Navbar />
+      <div className='row' style={{width:"100%"}}>
+            <Navbar/>
+        </div>
    
     <div className={style.main}>
     
